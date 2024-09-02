@@ -1,0 +1,6 @@
+[submodule "libs/shared-lib"]
+	path = libs/shared-lib
+	url = https://github.com/predictor-rkpb/shared-lib.git
+[submodule "libs/express-shared-lib"]
+	path = libs/express-shared-lib
+	url = https://github.com/predictor-rkpb/express-shared-lib.git
