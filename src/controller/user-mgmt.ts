@@ -15,7 +15,6 @@ export class UserManagementController {
     /* create a method assignGroup */
     public async assignGroup(request: RequestWithBody<GroupCodeDTO>, response: Response): Promise<void> {
         const user = getUserFromRequest(request);
-
         // try and catch GroupNotFoundError
         try {
             // get the group from the user repository
@@ -24,7 +23,7 @@ export class UserManagementController {
             // assign the user to the group only if the group is not null
             if (group && user) {
                 await this.userRepository.assignGroup(user.sub as string, group)
-                response.sendStatus(200)
+                response.status(200).send()
             }
             // else send invalid input response to the user
             else {
