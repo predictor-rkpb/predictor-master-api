@@ -10,7 +10,7 @@ const router = express.Router();
 const userManagementController = container.resolve('UserManagementController') as UserManagementController
 
 /* add a post route to the router with request object of type RequestWithBody<GroupDto>*/
-router.post('/assignGroup', (req, res) => userManagementController.assignGroup(req, res))
+router.post('/assignGroup', async (req, res) => await userManagementController.assignGroup(req, res))
 
 /* export the router */
 export default router

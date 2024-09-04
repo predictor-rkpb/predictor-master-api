@@ -16,7 +16,7 @@ app.get('/', auth.authenticate, (req: Request, res: Response) => {
     res.send('Hello World')
 })
 
-app.use('/user-mgmt', usermgmtRouter)
+app.use('/user-mgmt', auth.authenticate, usermgmtRouter)
 
 const port = 8002
 const server = app.listen(port, () => {
