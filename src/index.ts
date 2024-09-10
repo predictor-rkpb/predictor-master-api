@@ -2,6 +2,7 @@ import 'reflect-metadata';
 import './dependencyContainer'
 import express, { Request, Response } from 'express';
 import usermgmtRouter from './routes/user-mgmt'
+import teamsRouter from './routes/teams'
 import { AuthenticationMiddleware } from "../libs/express-shared-lib/index";
 
 require('dotenv').config();
@@ -17,6 +18,7 @@ app.get('/', auth.authenticate, (req: Request, res: Response) => {
 })
 
 app.use('/user-mgmt', auth.authenticate, usermgmtRouter)
+app.use('/teams', teamsRouter)
 
 const port = 8002
 const server = app.listen(port, () => {
